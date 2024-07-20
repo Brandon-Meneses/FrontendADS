@@ -26,6 +26,9 @@ import { PedidoComponent } from './pedido/pedido.component';
 import { VentaComponent } from './venta/venta.component';
 import { FacturaComponent } from './factura/factura.component';
 import { InventarioComponent } from './inventario/inventario.component';
+import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
+
+import { ClienteService } from '../app/cliente.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { InventarioComponent } from './inventario/inventario.component';
     PedidoComponent,
     VentaComponent,
     FacturaComponent,
-    InventarioComponent
+    InventarioComponent,
+    ClienteListComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,7 @@ import { InventarioComponent } from './inventario/inventario.component';
     MatIconModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

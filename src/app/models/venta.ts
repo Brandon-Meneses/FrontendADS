@@ -1,4 +1,4 @@
-export class Venta {
+export interface Venta {
     idVenta: number;
     fecha: Date;
     total: number;

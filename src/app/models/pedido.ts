@@ -1,4 +1,4 @@
-export class Pedido {
+export interface Pedido {
     idPedido: number;
     idCliente: number;
     idProducto: number;

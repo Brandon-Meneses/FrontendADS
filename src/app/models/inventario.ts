@@ -1,4 +1,4 @@
-export class Inventario {
+export interface Inventario {
     idInventario: number;
     fechaActualizacion: Date;
     idProducto: number;
