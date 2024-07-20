@@ -1,0 +1,63 @@
+<mat-card class="user-management-card">
+  <mat-card-title>Gestión de Usuarios</mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <h3>Lista de Usuarios</h3>
+    <mat-list>
+      <mat-list-item *ngFor="let usuario of usuarios">
+        <div mat-line>{{ usuario.nombre }}</div>
+        <div mat-line class="email">{{ usuario.correo }}</div>
+        <button mat-icon-button color="primary" (click)="selectUsuario(usuario)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteUsuario(usuario.idUsuario)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <h3>Añadir Usuario</h3>
+    <form (ngSubmit)="addUsuario()" class="user-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="newUsuario.nombre" name="nombre" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Correo</mat-label>
+        <input matInput [(ngModel)]="newUsuario.correo" name="correo" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [(ngModel)]="newUsuario.contrasena" name="contrasena" required type="password">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Rol</mat-label>
+        <input matInput [(ngModel)]="newUsuario.rol" name="rol" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Añadir</button>
+    </form>
+    <div *ngIf="selectedUsuario">
+      <h3>Editar Usuario</h3>
+      <form (ngSubmit)="updateUsuario()" class="user-form">
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput [(ngModel)]="selectedUsuario.nombre" name="nombre" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Correo</mat-label>
+          <input matInput [(ngModel)]="selectedUsuario.correo" name="correo" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [(ngModel)]="selectedUsuario.contrasena" name="contrasena" required type="password">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Rol</mat-label>
+          <input matInput [(ngModel)]="selectedUsuario.rol" name="rol" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Actualizar</button>
+        <button mat-raised-button color="accent" (click)="selectedUsuario = null">Cancelar</button>
+      </form>
+    </div>
+  </mat-card-content>
+</mat-card>
