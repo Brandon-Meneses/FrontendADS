@@ -1,1 +1,89 @@
-<p>venta works!</p>
+<div class="p-4 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-bold mb-4">Gestión de Ventas</h2>
+    <hr class="mb-4">
+    
+    <div class="mb-6">
+      <h3 class="text-xl mb-2">Lista de Ventas</h3>
+      <table class="min-w-full bg-white">
+        <thead>
+          <tr>
+            <th class="py-2">ID Venta</th>
+            <th class="py-2">Fecha</th>
+            <th class="py-2">Total</th>
+            <th class="py-2">ID Usuario</th>
+            <th class="py-2">ID Cliente</th>
+            <th class="py-2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let venta of ventas">
+            <td class="border px-4 py-2">{{ venta.idVenta }}</td>
+            <td class="border px-4 py-2">{{ venta.fecha | date }}</td>
+            <td class="border px-4 py-2">{{ venta.total }}</td>
+            <td class="border px-4 py-2">{{ venta.idUsuario }}</td>
+            <td class="border px-4 py-2">{{ venta.idCliente }}</td>
+            <td class="border px-4 py-2">
+              <button class="btn btn-primary btn-sm" (click)="selectVenta(venta)">Editar</button>
+              <button class="btn btn-error btn-sm" (click)="deleteVenta(venta.idVenta)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <hr class="mb-4">
+  
+    <div class="mb-6">
+      <h3 class="text-xl mb-2">Añadir Venta</h3>
+      <form (ngSubmit)="addVenta()">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Fecha</label>
+          <input [(ngModel)]="newVenta.fecha" name="fecha" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Total</label>
+          <input [(ngModel)]="newVenta.total" name="total" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Usuario</label>
+          <input [(ngModel)]="newVenta.idUsuario" name="idUsuario" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Cliente</label>
+          <input [(ngModel)]="newVenta.idCliente" name="idCliente" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit">Añadir</button>
+        </div>
+      </form>
+    </div>
+  
+    <hr class="mb-4" *ngIf="selectedVenta">
+  
+    <div *ngIf="selectedVenta">
+      <h3 class="text-xl mb-2">Editar Venta</h3>
+      <form (ngSubmit)="updateVenta()">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Fecha</label>
+          <input [(ngModel)]="selectedVenta.fecha" name="fecha" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Total</label>
+          <input [(ngModel)]="selectedVenta.total" name="total" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Usuario</label>
+          <input [(ngModel)]="selectedVenta.idUsuario" name="idUsuario" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Cliente</label>
+          <input [(ngModel)]="selectedVenta.idCliente" name="idCliente" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit">Actualizar</button>
+          <button class="btn btn-secondary" type="button" (click)="selectedVenta = null">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
