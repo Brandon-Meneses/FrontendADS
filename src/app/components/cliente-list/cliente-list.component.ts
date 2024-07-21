@@ -13,8 +13,14 @@ export class ClienteListComponent implements OnInit {
   constructor(private clienteService: ClienteService) {}
 
   ngOnInit(): void {
-    this.clienteService.getClientes().subscribe(data => {
-      this.clientes = data;
-    });
+    this.clienteService.getClientes().subscribe(
+      data => {
+        this.clientes = data;
+      },
+      error => {
+        console.error('Error al obtener clientes:', error);
+        // Aquí podrías manejar el error de otra manera si es necesario
+      }
+    );
   }
 }
