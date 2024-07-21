@@ -19,9 +19,37 @@
           <td>{{ cliente.telefono }}</td>
           <td>
             <button class="btn btn-primary btn-sm" [routerLink]="['/cliente', cliente.idCliente]">Ver</button>
+            <button class="btn btn-secondary btn-sm" (click)="selectCliente(cliente)">Editar</button>
+            <button class="btn btn-error btn-sm" (click)="deleteCliente(cliente.idCliente)">Eliminar</button>
           </td>
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div *ngIf="selectedCliente">
+    <h3 class="text-xl font-bold mt-4 mb-2">Editar Cliente</h3>
+    <form (ngSubmit)="updateCliente()">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
+        <input [(ngModel)]="selectedCliente.nombre" name="nombre" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Correo</label>
+        <input [(ngModel)]="selectedCliente.correo" name="correo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Dirección</label>
+        <input [(ngModel)]="selectedCliente.direccion" name="direccion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Teléfono</label>
+        <input [(ngModel)]="selectedCliente.telefono" name="telefono" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="tel" required>
+      </div>
+      <div>
+        <button class="btn btn-primary" type="submit">Actualizar</button>
+        <button class="btn btn-secondary" type="button" (click)="cancelEdit()">Cancelar</button>
+      </div>
+    </form>
   </div>
 </div>

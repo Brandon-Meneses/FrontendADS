@@ -7,9 +7,38 @@
     <p>Dirección: {{ cliente.direccion }}</p>
     <p>Teléfono: {{ cliente.telefono }}</p>
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary" (click)="editCliente()">Editar</button>
+    <button mat-button color="warn" (click)="deleteCliente(cliente.idCliente)">Eliminar</button>
+  </mat-card-actions>
 </mat-card>
 <mat-card *ngIf="!cliente" class="example-card">
   <mat-card-content>
     <p>Cliente no encontrado.</p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="isEditing && cliente" class="example-card">
+  <mat-card-content>
+    <form (ngSubmit)="updateCliente()">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="cliente.nombre" name="nombre" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Correo</mat-label>
+        <input matInput [(ngModel)]="cliente.correo" name="correo" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Dirección</mat-label>
+        <input matInput [(ngModel)]="cliente.direccion" name="direccion" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Teléfono</mat-label>
+        <input matInput [(ngModel)]="cliente.telefono" name="telefono" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Actualizar</button>
+      <button mat-raised-button color="accent" type="button" (click)="cancelEdit()">Cancelar</button>
+    </form>
   </mat-card-content>
 </mat-card>
