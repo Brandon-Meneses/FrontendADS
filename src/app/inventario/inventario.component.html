@@ -1,1 +1,79 @@
-<p>inventario works!</p>
+<div class="p-4 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-bold mb-4">Gestión de Inventarios</h2>
+    <hr class="mb-4">
+    
+    <div class="mb-6">
+      <h3 class="text-xl mb-2">Lista de Inventarios</h3>
+      <table class="min-w-full bg-white">
+        <thead>
+          <tr>
+            <th class="py-2">ID Inventario</th>
+            <th class="py-2">Fecha Actualización</th>
+            <th class="py-2">ID Producto</th>
+            <th class="py-2">Cantidad</th>
+            <th class="py-2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inventario of inventarios">
+            <td class="border px-4 py-2">{{ inventario.idInventario }}</td>
+            <td class="border px-4 py-2">{{ inventario.fechaActualizacion | date }}</td>
+            <td class="border px-4 py-2">{{ inventario.idProducto }}</td>
+            <td class="border px-4 py-2">{{ inventario.cantidad }}</td>
+            <td class="border px-4 py-2">
+              <button class="btn btn-primary btn-sm" (click)="selectInventario(inventario)">Editar</button>
+              <button class="btn btn-error btn-sm" (click)="deleteInventario(inventario.idInventario)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <hr class="mb-4">
+  
+    <div class="mb-6">
+      <h3 class="text-xl mb-2">Añadir Inventario</h3>
+      <form (ngSubmit)="addInventario()">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Fecha Actualización</label>
+          <input [(ngModel)]="newInventario.fechaActualizacion" name="fechaActualizacion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Producto</label>
+          <input [(ngModel)]="newInventario.idProducto" name="idProducto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Cantidad</label>
+          <input [(ngModel)]="newInventario.cantidad" name="cantidad" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit">Añadir</button>
+        </div>
+      </form>
+    </div>
+  
+    <hr class="mb-4" *ngIf="selectedInventario">
+  
+    <div *ngIf="selectedInventario">
+      <h3 class="text-xl mb-2">Editar Inventario</h3>
+      <form (ngSubmit)="updateInventario()">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Fecha Actualización</label>
+          <input [(ngModel)]="selectedInventario.fechaActualizacion" name="fechaActualizacion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Producto</label>
+          <input [(ngModel)]="selectedInventario.idProducto" name="idProducto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Cantidad</label>
+          <input [(ngModel)]="selectedInventario.cantidad" name="cantidad" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit">Actualizar</button>
+          <button class="btn btn-secondary" type="button" (click)="selectedInventario = null">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
