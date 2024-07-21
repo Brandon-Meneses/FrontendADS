@@ -12,8 +12,11 @@ export class ClienteService {
 
   // Datos mock para pruebas
   private mockClientes: Cliente[] = [
-    { idCliente: 1, nombre: 'Cliente 1', correo: 'cliente1@example.com', direccion: 'Dirección 1', telefono: '1234567890' },
-    { idCliente: 2, nombre: 'Cliente 2', correo: 'cliente2@example.com', direccion: 'Dirección 2', telefono: '0987654321' }
+    { idCliente: 1, nombre: 'Juan Pérez', correo: 'juan.perez@example.com', direccion: 'Av. Siempre Viva 123', telefono: '987654321' },
+  { idCliente: 2, nombre: 'María García', correo: 'maria.garcia@example.com', direccion: 'Calle Falsa 456', telefono: '987654322' },
+  { idCliente: 3, nombre: 'Carlos Sánchez', correo: 'carlos.sanchez@example.com', direccion: 'Pasaje Sin Nombre 789', telefono: '987654323' },
+  { idCliente: 4, nombre: 'Ana López', correo: 'ana.lopez@example.com', direccion: 'Jirón de la Unión 101', telefono: '987654324' },
+  { idCliente: 5, nombre: 'Luis Rodríguez', correo: 'luis.rodriguez@example.com', direccion: 'Av. Abancay 202', telefono: '987654325' }
   ];
 
   constructor(private http: HttpClient) {}
