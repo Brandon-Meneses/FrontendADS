@@ -30,6 +30,7 @@ import { InventarioComponent } from './inventario/inventario.component';
 import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
 
 import { ClienteService } from './services/cliente.service';
+import { UsuarioListComponent } from './components/usuario-list/usuario-list.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ClienteService } from './services/cliente.service';
     VentaComponent,
     FacturaComponent,
     InventarioComponent,
-    ClienteListComponent
+    ClienteListComponent,
+    UsuarioListComponent
   ],
   imports: [
     BrowserModule,
