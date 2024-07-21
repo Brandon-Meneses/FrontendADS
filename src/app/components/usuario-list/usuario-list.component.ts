@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../models/usuario';
+import { MOCK_USUARIOS } from '../../mock-data/mock-usuarios';
+
 
 @Component({
   selector: 'app-usuario-list',
@@ -18,7 +20,9 @@ export class UsuarioListComponent implements OnInit {
   }
 
   getUsuarios(): void {
-    this.usuarioService.getUsuarios().subscribe(usuarios => this.usuarios = usuarios);
+    // this.usuarioService.getUsuarios().subscribe(usuarios => this.usuarios = usuarios);
+    this.usuarios = MOCK_USUARIOS;
+
   }
 
   selectUsuario(usuario: Usuario): void {
