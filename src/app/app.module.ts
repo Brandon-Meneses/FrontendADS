@@ -31,6 +31,7 @@ import { ClienteListComponent } from './components/cliente-list/cliente-list.com
 
 import { ClienteService } from './services/cliente.service';
 import { UsuarioListComponent } from './components/usuario-list/usuario-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UsuarioListComponent } from './components/usuario-list/usuario-list.com
     FacturaComponent,
     InventarioComponent,
     ClienteListComponent,
-    UsuarioListComponent
+    UsuarioListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
