@@ -1,1 +1,69 @@
-<p>factura works!</p>
+<div class="p-4 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-bold mb-4">Gestión de Facturas</h2>
+    <hr class="mb-4">
+    
+    <div class="mb-6">
+      <h3 class="text-xl mb-2">Lista de Facturas</h3>
+      <table class="min-w-full bg-white">
+        <thead>
+          <tr>
+            <th class="py-2">ID Factura</th>
+            <th class="py-2">Fecha Emisión</th>
+            <th class="py-2">ID Venta</th>
+            <th class="py-2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let factura of facturas">
+            <td class="border px-4 py-2">{{ factura.idFactura }}</td>
+            <td class="border px-4 py-2">{{ factura.fechaEmision | date }}</td>
+            <td class="border px-4 py-2">{{ factura.idVenta }}</td>
+            <td class="border px-4 py-2">
+              <button class="btn btn-primary btn-sm" (click)="selectFactura(factura)">Editar</button>
+              <button class="btn btn-error btn-sm" (click)="deleteFactura(factura.idFactura)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <hr class="mb-4">
+  
+    <div class="mb-6">
+      <h3 class="text-xl mb-2">Añadir Factura</h3>
+      <form (ngSubmit)="addFactura()">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Fecha Emisión</label>
+          <input [(ngModel)]="newFactura.fechaEmision" name="fechaEmision" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Venta</label>
+          <input [(ngModel)]="newFactura.idVenta" name="idVenta" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit">Añadir</button>
+        </div>
+      </form>
+    </div>
+  
+    <hr class="mb-4" *ngIf="selectedFactura">
+  
+    <div *ngIf="selectedFactura">
+      <h3 class="text-xl mb-2">Editar Factura</h3>
+      <form (ngSubmit)="updateFactura()">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Fecha Emisión</label>
+          <input [(ngModel)]="selectedFactura.fechaEmision" name="fechaEmision" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Venta</label>
+          <input [(ngModel)]="selectedFactura.idVenta" name="idVenta" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit">Actualizar</button>
+          <button class="btn btn-secondary" type="button" (click)="selectedFactura = null">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
