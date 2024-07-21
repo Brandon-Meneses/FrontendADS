@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { InventarioService } from '../services/inventario.service';
 import { Inventario } from '../models/inventario';
+import { MOCK_INVENTARIOS } from '../mock-data/mock-inventarios';
+
 
 @Component({
   selector: 'app-inventario',
@@ -19,7 +21,8 @@ export class InventarioComponent implements OnInit {
   }
 
   getInventarios(): void {
-    this.inventarioService.getInventarios().subscribe(inventarios => this.inventarios = inventarios);
+    // Simulación de datos mock
+    this.inventarios = MOCK_INVENTARIOS;
   }
 
   addInventario(): void {

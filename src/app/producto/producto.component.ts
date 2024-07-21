@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../services/producto.service';
 import { Producto } from '../models/producto';
+import { MOCK_PRODUCTOS } from '../mock-data/mock-productos';
 
 @Component({
   selector: 'app-producto',
@@ -19,7 +20,8 @@ export class ProductoComponent implements OnInit {
   }
 
   getProductos(): void {
-    this.productoService.getProductos().subscribe(productos => this.productos = productos);
+    // Simulación de datos mock
+    this.productos = MOCK_PRODUCTOS;
   }
 
   addProducto(): void {

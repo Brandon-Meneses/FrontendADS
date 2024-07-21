@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FacturaService } from '../services/factura.service';
 import { Factura } from '../models/factura';
+import { MOCK_FACTURAS } from '../mock-data/mock-facturas';
+
 
 @Component({
   selector: 'app-factura',
@@ -19,7 +21,8 @@ export class FacturaComponent implements OnInit {
   }
 
   getFacturas(): void {
-    this.facturaService.getFacturas().subscribe(facturas => this.facturas = facturas);
+    // Simulación de datos mock
+    this.facturas = MOCK_FACTURAS;
   }
 
   addFactura(): void {
