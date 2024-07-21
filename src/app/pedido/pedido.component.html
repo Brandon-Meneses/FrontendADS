@@ -1,1 +1,89 @@
-<p>pedido works!</p>
+<div class="p-4 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-bold mb-4">Gestión de Pedidos</h2>
+    <hr class="mb-4">
+    
+    <div class="mb-6">
+      <h3 class="text-xl mb-2">Lista de Pedidos</h3>
+      <table class="min-w-full bg-white">
+        <thead>
+          <tr>
+            <th class="py-2">ID Pedido</th>
+            <th class="py-2">ID Cliente</th>
+            <th class="py-2">ID Producto</th>
+            <th class="py-2">Cantidad</th>
+            <th class="py-2">Fecha</th>
+            <th class="py-2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pedido of pedidos">
+            <td class="border px-4 py-2">{{ pedido.idPedido }}</td>
+            <td class="border px-4 py-2">{{ pedido.idCliente }}</td>
+            <td class="border px-4 py-2">{{ pedido.idProducto }}</td>
+            <td class="border px-4 py-2">{{ pedido.cantidad }}</td>
+            <td class="border px-4 py-2">{{ pedido.fecha | date }}</td>
+            <td class="border px-4 py-2">
+              <button class="btn btn-primary btn-sm" (click)="selectPedido(pedido)">Editar</button>
+              <button class="btn btn-error btn-sm" (click)="deletePedido(pedido.idPedido)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <hr class="mb-4">
+  
+    <div class="mb-6">
+      <h3 class="text-xl mb-2">Añadir Pedido</h3>
+      <form (ngSubmit)="addPedido()">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Cliente</label>
+          <input [(ngModel)]="newPedido.idCliente" name="idCliente" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Producto</label>
+          <input [(ngModel)]="newPedido.idProducto" name="idProducto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Cantidad</label>
+          <input [(ngModel)]="newPedido.cantidad" name="cantidad" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Fecha</label>
+          <input [(ngModel)]="newPedido.fecha" name="fecha" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" required>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit">Añadir</button>
+        </div>
+      </form>
+    </div>
+  
+    <hr class="mb-4" *ngIf="selectedPedido">
+  
+    <div *ngIf="selectedPedido">
+      <h3 class="text-xl mb-2">Editar Pedido</h3>
+      <form (ngSubmit)="updatePedido()">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Cliente</label>
+          <input [(ngModel)]="selectedPedido.idCliente" name="idCliente" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">ID Producto</label>
+          <input [(ngModel)]="selectedPedido.idProducto" name="idProducto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Cantidad</label>
+          <input [(ngModel)]="selectedPedido.cantidad" name="cantidad" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Fecha</label>
+          <input [(ngModel)]="selectedPedido.fecha" name="fecha" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" required>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit">Actualizar</button>
+          <button class="btn btn-secondary" type="button" (click)="selectedPedido = null">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
