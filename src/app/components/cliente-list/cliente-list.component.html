@@ -1,8 +1,36 @@
-<div>
+<div class="container">
   <h2>Clientes</h2>
-  <ul>
-    <li *ngFor="let cliente of clientes">
-      <a [routerLink]="['/cliente', cliente.idCliente]">{{ cliente.nombre }} - {{ cliente.correo }}</a>
-    </li>
-  </ul>
+  <div class="table-container mat-elevation-z8">
+    <mat-table [dataSource]="clientes">
+      <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.nombre}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="correo">
+        <mat-header-cell *matHeaderCellDef> Correo </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.correo}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="direccion">
+        <mat-header-cell *matHeaderCellDef> Dirección </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.direccion}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="telefono">
+        <mat-header-cell *matHeaderCellDef> Teléfono </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.telefono}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+        <mat-cell *matCellDef="let cliente">
+          <button mat-button [routerLink]="['/cliente', cliente.idCliente]">Ver</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
 </div>

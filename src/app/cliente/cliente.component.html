@@ -1,9 +1,15 @@
-<div *ngIf="cliente">
-  <h2>{{ cliente.nombre }}</h2>
-  <p>Correo: {{ cliente.correo }}</p>
-  <p>Dirección: {{ cliente.direccion }}</p>
-  <p>Teléfono: {{ cliente.telefono }}</p>
-</div>
-<div *ngIf="!cliente">
-  <p>Cliente no encontrado.</p>
-</div>
+<mat-card *ngIf="cliente" class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{ cliente.nombre }}</mat-card-title>
+    <mat-card-subtitle>{{ cliente.correo }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Dirección: {{ cliente.direccion }}</p>
+    <p>Teléfono: {{ cliente.telefono }}</p>
+  </mat-card-content>
+</mat-card>
+<mat-card *ngIf="!cliente" class="example-card">
+  <mat-card-content>
+    <p>Cliente no encontrado.</p>
+  </mat-card-content>
+</mat-card>
