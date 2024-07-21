@@ -1,6 +1,6 @@
 module.exports = {
   content: [
-    './src/**/*.{html,ts,scss}', // Incluye archivos HTML, TS, y SCSS
+    './src/**/*.{html,ts,scss,css}',
   ],
   theme: {
     extend: {},
