@@ -9,12 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
-
 import { MatMenuModule } from '@angular/material/menu';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +25,7 @@ import { FacturaComponent } from './factura/factura.component';
 import { InventarioComponent } from './inventario/inventario.component';
 import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
 
-import { ClienteService } from '../app/cliente.service';
+import { ClienteService } from './services/cliente.service';
 
 @NgModule({
   declarations: [

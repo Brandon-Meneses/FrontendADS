@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from '../../cliente.service';
+import { ClienteService } from '../../services/cliente.service';
 import { Cliente } from '../../models/cliente';
 
 @Component({
@@ -19,7 +19,6 @@ export class ClienteListComponent implements OnInit {
       },
       error => {
         console.error('Error al obtener clientes:', error);
-        // Aquí podrías manejar el error de otra manera si es necesario
       }
     );
   }
