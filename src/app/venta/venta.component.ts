@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VentaService } from '../services/venta.service';
 import { Venta } from '../models/venta';
+import { MOCK_VENTAS } from '../mock-data/mock-ventas';
 
 @Component({
   selector: 'app-venta',
@@ -19,7 +20,8 @@ export class VentaComponent implements OnInit {
   }
 
   getVentas(): void {
-    this.ventaService.getVentas().subscribe(ventas => this.ventas = ventas);
+    // Simulación de datos mock
+    this.ventas = MOCK_VENTAS;
   }
 
   addVenta(): void {
