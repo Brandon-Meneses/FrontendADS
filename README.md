@@ -71,7 +71,7 @@ Ejecuta `ng e2e` para ejecutar las pruebas de extremo a extremo a través de una
 ├── README.md
 └── tsconfig.json
 
-´´´
+```
 
 ## Tecnologías Utilizadas
 
