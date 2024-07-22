@@ -6,6 +6,11 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 
 Este proyecto forma parte del curso de Análisis y Diseño de Sistemas de Información dictado en la Universidad Tecnológica del Perú (UTP).
 
+## Imágenes de Proyecto
+
+[![temp-Imagew-Afm-Yx.avif](https://i.postimg.cc/XJGTY5dn/temp-Imagew-Afm-Yx.avif)](https://postimg.cc/7G4BBfKR)
+
+[![temp-Imagex-UNMJI.avif](https://i.postimg.cc/nz4G2ctv/temp-Imagex-UNMJI.avif)](https://postimg.cc/5YtzNJy0)
 
 ## Servidor de Desarrollo
 
