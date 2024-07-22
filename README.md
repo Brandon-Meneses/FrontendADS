@@ -2,6 +2,11 @@
 
 Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 16.2.1.
 
+## Información General
+
+Este proyecto forma parte del curso de Análisis y Diseño de Sistemas de Información dictado en la Universidad Tecnológica del Perú (UTP).
+
+
 ## Servidor de Desarrollo
 
 Ejecuta `ng serve` para iniciar un servidor de desarrollo. Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
