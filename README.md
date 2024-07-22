@@ -22,6 +22,55 @@ Ejecuta `ng test` para ejecutar las pruebas unitarias a través de [Karma](https
 
 Ejecuta `ng e2e` para ejecutar las pruebas de extremo a extremo a través de una plataforma de tu elección. Para usar este comando, primero necesitas agregar un paquete que implemente capacidades de pruebas de extremo a extremo.
 
+## Estructura del Proyecto
+
+```plaintext
+├── src
+│   ├── app
+│   │   ├── components
+│   │   │   ├── cliente-list
+│   │   │   │   ├── cliente-list.component.css
+│   │   │   │   ├── cliente-list.component.html
+│   │   │   │   ├── cliente-list.component.ts
+│   │   │   │   └── cliente-list.component.spec.ts
+│   │   │   ├── usuario-list
+│   │   │   │   ├── usuario-list.component.css
+│   │   │   │   ├── usuario-list.component.html
+│   │   │   │   ├── usuario-list.component.ts
+│   │   │   │   └── usuario-list.component.spec.ts .... demás componentes por cada modelo
+│   │   ├── models
+│   │   │   ├── cliente.ts
+│   │   │   ├── usuario.ts
+│   │   │   ├── pedido.ts
+│   │   │   ├── producto.ts
+│   │   │   ├── factura.ts
+│   │   │   └── inventario.ts
+│   │   ├── services
+│   │   │   ├── cliente.service.ts
+│   │   │   ├── usuario.service.ts
+│   │   │   ├── pedido.service.ts
+│   │   │   ├── producto.service.ts
+│   │   │   ├── factura.service.ts
+│   │   │   └── inventario.service.ts
+│   │   ├── app.component.css
+│   │   ├── app.component.html
+│   │   ├── app.component.ts
+│   │   ├── app.module.ts
+│   ├── assets
+│   ├── environments
+│   │   ├── environment.prod.ts
+│   │   └── environment.ts
+│   ├── index.html
+│   ├── main.ts
+│   ├── polyfills.ts
+│   └── styles.css
+├── .editorconfig
+├── .gitignore
+├── angular.json
+├── package.json
+├── README.md
+└── tsconfig.json
+
 ## Tecnologías Utilizadas
 
 - **Angular**: Framework principal para la construcción del frontend.
